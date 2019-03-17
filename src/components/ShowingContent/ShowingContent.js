@@ -1,30 +1,17 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 
 const VIEW_LESS_BTN_TEXT = 'View less'
 const VIEW_MORE_BTN_TEXT = 'View more'
 
-class ShowingContent extends PureComponent {
-  constructor(props) {
-    super(props)
-    this.state = {
-      shortContent: true,
-    }
-
-    this.onToggleVisibleContent = this.onToggleVisibleContent.bind(this)
+class ShowingContent extends React.Component {
+  state = {
+    shortContent: true,
   }
-  // TODO
-  // state = {
-  //   shortContent: true,
-  // }
-
-  // TODO
-  // onToggleVisibleContent = () => {
-  onToggleVisibleContent() {
+  onToggleVisibleContent = () => {
     this.setState(prevState => ({
       shortContent: !prevState.shortContent,
     }))
   }
-
   render() {
     const currentConetnt = this.state.shortContent
       ? this.props.children.shortDesc
