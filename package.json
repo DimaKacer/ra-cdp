@@ -1,6 +1,6 @@
 {
   "name": "react-app-cdp",
-  "version": "0.0.2",
+  "version": "0.2.1",
   "description": "This app - single page application (with react js), which will allow users to search the Movies DB database",
   "main": "index.js",
   "scripts": {

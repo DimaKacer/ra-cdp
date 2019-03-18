@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// const CleanWebpackPlugin = require('clean-webpack-plugin') // TODO: near upcomming plugin
 
 module.exports = {
   entry: path.join(__dirname, 'src', 'index.js'),
@@ -20,11 +21,7 @@ module.exports = {
       },
       {
         test: /.(css|scss)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /.(jpg|jpeg|png|gif|svg)$/,
@@ -44,6 +41,7 @@ module.exports = {
     ],
   },
   plugins: [
+    // new CleanWebpackPlugin(['public']),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(__dirname, 'src', 'index.html'),
