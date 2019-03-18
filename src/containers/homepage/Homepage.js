@@ -2,10 +2,10 @@ import React from 'react'
 
 import contentHomePage from './contentHomePage.json'
 
-import ShowingContent from './../../components/ShowingContent'
+import ShowingContent from '../../components/ShowingContent'
 
 // Using 'Function Component'
-function Homepage(props) {
+function Homepage() {
   return (
     <React.Fragment>
       {React.createElement(

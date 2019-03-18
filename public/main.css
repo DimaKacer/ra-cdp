@@ -1,0 +1,27 @@
+body {
+  background: url(assests/images/main-bg-8a4fe5e3.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+h1 {
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: 4em;
+  letter-spacing: -2px;
+  text-align: center;
+  text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.6); }
+
+#root {
+  position: absolute;
+  top: 25px;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 40px;
+  background-color: rgba(66, 66, 66, 0.7); }
+

@@ -13,3 +13,32 @@
 ###4.4. Use - functional components
 ###5. Install - express
 
+
+
+
+task 2
+yarn add webpack --dev
+yarn add webpack-cli --dev
+
+"scripts": {
+  "build": "webpack --mode production"
+}
+
+yarn add @babel/core @babel/preset-env @babel/preset-react babel-loader --dev
+
+{
+  "presets": ["@babel/env", "@babel/react"]
+}
+
+yarn add react react-dom
+
+
+yarn add css-loader sass-loader mini-css-extract-plugin node-sass --dev
+
+
+
+yarn add webpack-dev-server --dev
+
+yarn add file-loader @babel/plugin-proposal-class-properties --dev
+
+
