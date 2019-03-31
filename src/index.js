@@ -1,6 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Application from './app'
+import AppRouter from './routes'
 
-ReactDOM.render(<Application />, document.getElementById('root'))
+// if (module.hot) {
+//   module.hot.accept()
+// }
+
+ReactDOM.render(<AppRouter />, document.getElementById('root'))
