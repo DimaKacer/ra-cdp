@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-// import './headerNav.scss'
+import './headerNav.scss'
 
 class HeaderNavigation extends React.Component {
   render() {
