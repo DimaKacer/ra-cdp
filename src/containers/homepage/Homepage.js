@@ -2,9 +2,8 @@ import React from 'react'
 
 import contentHomePage from './contentHomePage.json'
 
-import ShowingContent from '../../components/ShowingContent'
+import ShowingContent from '../../components/showingContent'
 
-// Using 'Function Component'
 function Homepage() {
   return (
     <React.Fragment>
@@ -15,7 +14,7 @@ function Homepage() {
       )}
       {React.createElement(
         'div',
-        { style: { color: 'gray' }, className: 'sub-title' },
+        { style: { color: 'green' }, className: 'sub-title' },
         contentHomePage.subTitle
       )}
       <ShowingContent>{contentHomePage.description}</ShowingContent>

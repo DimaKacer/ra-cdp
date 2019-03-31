@@ -1,14 +1,19 @@
 const path = require('path')
+// const webpack = require('webpack')
+// const CaseSensitivePlugin = require('case-sensitive-paths-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-  entry: path.join(__dirname, 'src', 'index.js'),
+  mode: process.env.NODE_ENV || 'development',
+  devtool: 'source-map', // 'inline-source-map',
+  entry: path.join(__dirname, './../src', 'index.js'),
+  // entry: ['webpack-hot-middleware/client'],
   output: {
+    // path: path.join(__dirname, 'dist'),
     path: path.join(__dirname, 'public'),
     filename: '[name].bundle.js',
   },
-  mode: process.env.NODE_ENV || 'development',
   module: {
     rules: [
       {
@@ -20,11 +25,8 @@ module.exports = {
       },
       {
         test: /.(css|scss)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        // use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /.(jpg|jpeg|png|gif|svg)$/,
@@ -38,15 +40,21 @@ module.exports = {
         ],
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        test: /\.(woff|woff2|eot|ttf|otff|png)$/,
         use: ['file-loader'],
+        // options: {
+        //   name: '[name][hash].[ext]',
+        // },
       },
     ],
   },
   plugins: [
+    // new CleanWebpackPlugin(['public']),
     new HtmlWebpackPlugin({
+      title: 'React CDP development',
       filename: 'index.html',
-      template: path.join(__dirname, 'src', 'index.html'),
+      hash: true,
+      template: path.join(__dirname, './../src', 'index.html'),
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
@@ -55,14 +63,6 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.scss', '.css'],
-    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, './public'),
-    inline: true,
-    host: 'localhost',
-    port: 3310,
-    open: true,
-    hot: true,
+    modules: [path.resolve(__dirname, './../src'), 'node_modules'],
   },
 }
