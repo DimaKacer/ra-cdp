@@ -3,8 +3,8 @@ const devConfig = require('./webpack.development.config.js')
 const prodConfig = require('./webpack.production.config.js')
 
 const baseConfig = {
-  entry: path.join(__dirname, 'src', 'index.js'),
-  // entry: './../index.js',
+  // entry: path.join(__dirname, 'src', 'index.js'),
+  entry: './../index.js',
 
   context: path.join(__dirname, 'src'),
   resolve: {

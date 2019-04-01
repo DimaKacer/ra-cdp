@@ -20,12 +20,14 @@ console.log(11, process.env.NODE_ENV)
 // node ./server/server.js && webpack --mode=development --open --hot
 console.log('process.env.NODE_ENV = ' + process.env.NODE_ENV);
 
+// const root = './../'
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'build')))
 
   app.use('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
+    // res.sendFile(path.join(__dirname, root, 'build', 'index.html'))
   })
 } else {
   const webpackDevMiddleware = require('webpack-dev-middleware') // eslint-disable-line global-require
