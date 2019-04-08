@@ -1,0 +1,15 @@
+footer {
+  .footer-top {
+    position: relative;
+    padding: 30px 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .footer-copyright {
+    padding: 10px 15px 15px;
+
+    .label-text {
+      margin-right: 5px;
+    }
+  }
+}
