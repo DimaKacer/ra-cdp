@@ -1,12 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-// import AppRouter from './routes'
-
-const Logo = () => <div className="logo">netflixroulette</div>
+import AppRouter from './routes'
 
 if (module.hot) {
   module.hot.accept()
 }
 
-ReactDOM.render(<Logo />, document.getElementById('root'))
+ReactDOM.render(<AppRouter />, document.getElementById('root'))

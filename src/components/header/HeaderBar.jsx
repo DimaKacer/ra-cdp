@@ -1,20 +1,9 @@
 import React from 'react'
-import Logo from '../logo'
+
+// import './header-bar.scss'
 
 function HeaderBar(props) {
-  return (
-    <div className="header-line">
-      <Logo />
-      {props.isMovieSelected && (
-        <button
-          className="button button_reverse"
-          onClick={() => props.backToSearch()}
-        >
-          Search
-        </button>
-      )}
-    </div>
-  )
+  return <div className="header-bar" />
 }
 
 export default HeaderBar
