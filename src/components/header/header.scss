@@ -1,11 +1,11 @@
 header {
-  .header-bar {
+  &.header-wrapper {
     background: url("./../../../assests/images/header-bg.jpg") no-repeat center center;
     background-size: cover;
-  }
 
-  .header-bar-wrapper {
-    background-color: rgba(33, 29, 29, 0.7);
+    .header-bar {
+      background-color: rgba(33, 29, 29, 0.7);
+    }
   }
 
   .full-screen {
@@ -23,29 +23,28 @@ header {
     }
   }
 
-  h3 {
-    position: relative;
-    text-transform: uppercase;
-    color: #fff;
-  }
-
   .filter-options {
-    span {
-      text-transform: uppercase;
-      margin-right: 15px;
-      font-size: 12px;
-      color: #565656;
+    &.search-panel {
+      span {
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
 
-      &:first-child {
-        color: #fff;
+        &.tag {
+          cursor: pointer;
+        }
       }
+    }
 
-      &:last-child {
-        margin-right: 0px;
-      }
+    &.display-results {
+      span {
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
 
-      &.tag {
-        font-size: 12px;
+        &.tag {
+          cursor: pointer;
+        }
       }
     }
   }
@@ -53,15 +52,5 @@ header {
   .summarise-results-panel {
     background-color: #ccc;
     padding: 1rem 1.5rem;
-
-    .level-right {
-      .item-option {
-        margin-left: 15px;
-        
-        &:first-child {
-          margin-left: 0px;
-        }
-      }
-    }
   }
 }
