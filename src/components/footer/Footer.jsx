@@ -8,11 +8,13 @@ import './footer.scss'
 function Footer() {
   return (
     <footer className="footer-wrapper">
-      <section className="container">
-        <section className="footer-top">
+      <section className="footer-top">
+        <div className="container">
           <Logo />
-        </section>
-        <section className="footer-copyright">
+        </div>
+      </section>
+      <section className="footer-copyright">
+        <div className="container">
           <div className="level">
             <div className="level-left">{COPYRIGHT_TEXT}</div>
             <div className="level-right">
@@ -20,7 +22,7 @@ function Footer() {
               <span>{AUTHOR_TEXT}</span>
             </div>
           </div>
-        </section>
+        </div>
       </section>
     </footer>
   )

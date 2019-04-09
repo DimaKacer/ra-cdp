@@ -1,38 +1,68 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
-// import MovieFounded from './MovieFounded'
-// import MovieSearch from './MovieSearch'
-// import HeaderBar from './HeaderBar'
+import classnames from 'classnames'
+
 import Logo from 'components/logo'
+
+import {
+  LABEL_SEARCH_BY,
+  LABEL_TITLE,
+  LABEL_GENRE,
+  ACTIVE_CLASSNAME,
+  LABEL_SEARCH_BY,
+  LABEL_RELEASE_DATE,
+  LABEL_RATING,
+} from './types'
 
 import './header.scss'
 
 class Header extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      isActiveSort: true,
+      isActiveSearch: true,
+    }
+  }
+
+  // TODO: Method for feature 'search: title/genre'
+  toggleActiveSortingOption = el => {
+    if (el.target.className.match(ACTIVE_CLASSNAME)) {
+      return null
+    }
+
+    return this.setState({
+      isActiveSort: !this.state.isActiveSort,
+    })
+  }
+
+  // TODO: Method for feature 'sort: release date/rating'
+  toggleActiveSearchingOption = el => {
+    if (el.target.className.match(ACTIVE_CLASSNAME)) {
+      return null
+    }
+
+    return this.setState({
+      isActiveSearch: !this.state.isActiveSearch,
+    })
   }
 
   render() {
+    const { isActiveSort, isActiveSearch } = this.state
+
     return (
       <header className="header-wrapper">
-        <section className="container">
-          <section className="header-bar">
-            <div className="section header-bar-wrapper">
+        <section className="header-bar">
+          <section className="section header-bar-inner">
+            <div className="container">
               <div className="level">
                 <Logo className="level-left" />
                 <button className="level-right">search</button>
-                {/* {props.isSelectedMovie && (
-              <button
-                className="button button_reverse"
-                onClick={() => props.backToSearch()}
-                // {props.isSelectedMovie && <button className="button button_reverse" onClick={() => props.backToSearch()}>Search</button>}
-              >
-                Search
-              </button>
-            )} */}
               </div>
               <div className="level">
-                <h3>find your movie</h3>
+                <h3 className="title is-3 has-text-light is-uppercase">
+                  find your movie
+                </h3>
               </div>
               <div className="level">
                 <div className="field full-screen">
@@ -46,10 +76,28 @@ class Header extends React.Component {
                 </div>
               </div>
               <div className="level">
-                <div className="level-left filter-options">
-                  <span>search by</span>
-                  <span className="tag">title</span>
-                  <span className="tag">genre</span>
+                <div className="level-left filter-options search-panel is-uppercase is-size-7">
+                  <span className="has-text-light is-size-6">
+                    {LABEL_SEARCH_BY}:
+                  </span>
+                  <span
+                    className={classnames(
+                      'tag',
+                      isActiveSearch && 'is-success'
+                    )}
+                    onClick={this.toggleActiveSearchingOption}
+                  >
+                    {LABEL_TITLE}
+                  </span>
+                  <span
+                    className={classnames(
+                      'tag',
+                      !isActiveSearch && 'is-success'
+                    )}
+                    onClick={this.toggleActiveSearchingOption}
+                  >
+                    {LABEL_GENRE}
+                  </span>
                 </div>
                 <div className="level-right">
                   <button>search</button>
@@ -57,15 +105,28 @@ class Header extends React.Component {
               </div>
             </div>
           </section>
-          <section className="section summarise-results-panel">
-            <div className="level">
-              <div className="level-left">
-                <span className="tag">7 movies found</span>
-              </div>
-              <div className="level-right">
-                <span className="item-option">Sort by</span>
-                <span className="item-option">Release date</span>
-                <span className="item-option">Rating</span>
+          <section className="summarise-results-panel">
+            <div className="container">
+              <div className="level">
+                <div className="level-left">
+                  <span className="tag">7 movies found</span>
+                </div>
+                <div className="level-right filter-options display-results">
+                  <span className="item-option">{LABEL_SEARCH_BY}:</span>
+
+                  <span
+                    className={classnames('tag', isActiveSort && 'is-success')}
+                    onClick={this.toggleActiveSortingOption}
+                  >
+                    {LABEL_RELEASE_DATE}
+                  </span>
+                  <span
+                    className={classnames('tag', !isActiveSort && 'is-success')}
+                    onClick={this.toggleActiveSortingOption}
+                  >
+                    {LABEL_RATING}
+                  </span>
+                </div>
               </div>
             </div>
           </section>
