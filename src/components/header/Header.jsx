@@ -8,7 +8,7 @@ import {
   LABEL_TITLE,
   LABEL_GENRE,
   ACTIVE_CLASSNAME,
-  LABEL_SEARCH_BY,
+  LABEL_SORT_BY,
   LABEL_RELEASE_DATE,
   LABEL_RATING,
 } from './types'
@@ -22,6 +22,7 @@ class Header extends React.Component {
     this.state = {
       isActiveSort: true,
       isActiveSearch: true,
+      countMovis: 0,
     }
   }
 
@@ -112,8 +113,7 @@ class Header extends React.Component {
                   <span className="tag">7 movies found</span>
                 </div>
                 <div className="level-right filter-options display-results">
-                  <span className="item-option">{LABEL_SEARCH_BY}:</span>
-
+                  <span className="item-option">{LABEL_SORT_BY}:</span>
                   <span
                     className={classnames('tag', isActiveSort && 'is-success')}
                     onClick={this.toggleActiveSortingOption}
